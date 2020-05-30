@@ -1,4 +1,5 @@
 defmodule ViewFormsWeb.PageController do
+  import ViewForms.CoreCollaboration
   use ViewFormsWeb, :controller
   plug Plug.CSRFProtection
 
@@ -12,10 +13,15 @@ defmodule ViewFormsWeb.PageController do
     render conn, "add_venue.html", csrf: csrf
   end
 
-  def add_venue_handler(conn, _params) do
-    # IO.puts(_params)
-    # TODO: handle request =)
-
-    render conn, "thanks.html"
+  def add_venue_handler(conn, params) do
+    template = case validate_publish_token() do
+      :valid ->
+        send_draft params["draft"]
+        "thanks.html"
+      :invalid ->
+        "error.html"
+    end
+    
+    render conn, template
   end
 end

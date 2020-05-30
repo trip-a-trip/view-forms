@@ -1,6 +1,6 @@
 defmodule ViewForms.CoreCollaboration do
   import HTTPoison
-  import Poison
+  import Jason
 
   def validate_publish_token do
     # _response = get! "http://httparrot.herokuapp.com/get"

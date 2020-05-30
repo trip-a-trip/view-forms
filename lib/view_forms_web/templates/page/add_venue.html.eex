@@ -1,0 +1,60 @@
+<%= form_for @conn, Routes.page_path(@conn, :add_venue_handler), [as: :draft], fn f -> %>
+    <label>
+        Название
+        <%= text_input f, :name, required: true %>
+    </label>
+
+    <label>
+        Эмейзинг?
+        <%= text_input f, :is_amazing, type: "checkbox" %>
+    </label>
+
+    <label>
+        Дороговато?
+        <%= text_input f, :is_expensive, type: "checkbox" %>
+    </label>
+
+    <p>Что у них получается лучше всего?</p>
+    <label>
+        Завтраки
+        <%= text_input f, :for_breakfast, type: "checkbox" %>
+    </label>
+    <label>
+        Обеды
+        <%= text_input f, :for_lunch, type: "checkbox" %>
+    </label>
+    <label>
+        Ужины
+        <%= text_input f, :for_dinner, type: "checkbox" %>
+    </label>
+    <label>
+        Чай/кофе
+        <%= text_input f, :for_bite_drink, type: "checkbox" %>
+    </label>
+
+    <label>
+        Инстаграм
+        <%= text_input f, :link_instagram %>
+    </label>
+
+    <label>
+        Сайт
+        <%= text_input f, :link_site %>
+    </label>
+
+    <p>Коордиакты<p>
+    <label>
+        Широта
+        <%= text_input f, :coordinates_latitude, type: "number", required: true %>
+    </label>
+    <label>
+        Долгота
+        <%= text_input f, :coordinates_longitude, type: "number", required: true %>
+    </label>
+    <label>
+        Адрес
+        <%= text_input f, :coordinates_address %>
+    </label>
+
+    <%= submit "Отправить" %>
+<% end %>

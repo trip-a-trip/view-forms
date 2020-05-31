@@ -1,60 +1,85 @@
+<section>
+    <h1>Йоу!</h1>
+    <p>Чтобы добавить свое заведение, нужно заполнить форму. Мы быстро промодерируем ответы и, если все хорошо, они попадут в бота.</p>
+</section>
 <%= form_for @conn, Routes.page_path(@conn, :add_venue_handler), [as: :draft], fn f -> %>
-    <label>
-        Название
-        <%= text_input f, :name, required: true %>
-    </label>
+    <section>
+        <p>Прежде чем добавлять заведение, убедись, что его ещё нет в боте. Если не уверен — <a href="https://tme.to/igorkamyshev" target="_blank">напиши мне</a>, я проверю.</p>
+        <label>
+            Название <span class="label--required">(обязательно)</span>
+            <%= text_input f, :name, required: true %>
+        </label>
+    </section>
 
-    <label>
-        Эмейзинг?
-        <%= text_input f, :is_amazing, type: "checkbox" %>
-    </label>
+    <section>
+        <h2>Как там?</h2>
 
-    <label>
-        Дороговато?
-        <%= text_input f, :is_expensive, type: "checkbox" %>
-    </label>
+        <label>
+            <%= text_input f, :is_amazing, type: "checkbox" %>
+            😍 эмейзинг
+        </label>
 
-    <p>Что у них получается лучше всего?</p>
-    <label>
-        Завтраки
-        <%= text_input f, :for_breakfast, type: "checkbox" %>
-    </label>
-    <label>
-        Обеды
-        <%= text_input f, :for_lunch, type: "checkbox" %>
-    </label>
-    <label>
-        Ужины
-        <%= text_input f, :for_dinner, type: "checkbox" %>
-    </label>
-    <label>
-        Чай/кофе
-        <%= text_input f, :for_bite_drink, type: "checkbox" %>
-    </label>
+        <label>
+            <%= text_input f, :is_expensive, type: "checkbox" %>
+            💸 дороговато
+        </label>
+    </section>
 
-    <label>
-        Инстаграм
-        <%= text_input f, :link_instagram %>
-    </label>
+    <section>
+        <h2>За чем идти?</h2>
 
-    <label>
-        Сайт
-        <%= text_input f, :link_site %>
-    </label>
+        <label>
+            <%= text_input f, :for_breakfast, type: "checkbox" %>
+            завтракать
+        </label>
 
-    <p>Коордиакты<p>
-    <label>
-        Широта
-        <%= text_input f, :coordinates_latitude, type: "number", required: true %>
-    </label>
-    <label>
-        Долгота
-        <%= text_input f, :coordinates_longitude, type: "number", required: true %>
-    </label>
-    <label>
-        Адрес
-        <%= text_input f, :coordinates_address %>
-    </label>
+        <label>
+            <%= text_input f, :for_lunch, type: "checkbox" %>
+            обедать
+        </label>
+
+        <label>
+            <%= text_input f, :for_dinner, type: "checkbox" %>
+            ужинать
+        </label>
+        <label>
+            <%= text_input f, :for_bite_drink, type: "checkbox" %>
+            пить чай/кофе
+        </label>
+    </section>
+
+    <section>
+        <h2>Ссылки</h2>
+        <p>Будет круто добавить ссылку на это место, чтобы при поиске можно было посмотреть фотографии, проверить работает ли оно.</p>
+
+        <label>
+            Инстаграм
+            <%= text_input f, :link_instagram %>
+        </label>
+
+        <label>
+            Сайт
+            <%= text_input f, :link_site %>
+        </label>
+    </section>
+
+    <section>
+        <h2>Координаты</h2>
+        <p>Боту остро необходимо знать точные координаты заведения и пока он не умеет определять их сам. <a href="https://support.google.com/maps/answer/18539" target="_blank">Подробная инструкция</a>, как определить координаты через Гугл-карты.<p>
+        
+        <label>
+            Широта <span class="label--required">(обязательно)</span>
+            <%= text_input f, :coordinates_latitude, type: "number", required: true %>
+        </label>
+        <label>
+            Долгота <span class="label--required">(обязательно)</span>
+            <%= text_input f, :coordinates_longitude, type: "number", required: true %>
+        </label>
+        <label>
+            Адрес
+            <%= text_input f, :coordinates_address %>
+        </label>
+    </section>
 
     <%= submit "Отправить" %>
 <% end %>

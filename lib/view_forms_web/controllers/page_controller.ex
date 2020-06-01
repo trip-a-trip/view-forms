@@ -7,16 +7,21 @@ defmodule ViewFormsWeb.PageController do
     render(conn, "index.html")
   end
 
-  def add_venue_form(conn, _params) do
+  def add_venue_form(conn, params) do
     csrf = get_csrf_token()
+    token = params["token"]
 
-    render conn, "add_venue.html", csrf: csrf
+    render conn, "add_venue.html",
+      csrf: csrf,
+      token: token
   end
 
   def add_venue_handler(conn, params) do
-    template = case validate_publish_token() do
-      :valid ->
-        send_draft params["draft"]
+    token = params["token"]
+
+    template = case validate_publishing token do
+      :valid -> 
+        publish_draft params["draft"]
         "thanks.html"
       :invalid ->
         "error.html"

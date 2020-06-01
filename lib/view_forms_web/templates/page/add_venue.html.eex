@@ -2,7 +2,7 @@
     <h1>Йоу!</h1>
     <p>Чтобы добавить свое заведение, нужно заполнить форму. Мы быстро промодерируем ответы и, если все хорошо, они попадут в бота.</p>
 </section>
-<%= form_for @conn, Routes.page_path(@conn, :add_venue_handler), [as: :draft], fn f -> %>
+<%= form_for @conn, Routes.page_path(@conn, :add_venue_handler, token: @token), [as: :draft], fn f -> %>
     <section>
         <p>Прежде чем добавлять заведение, убедись, что его ещё нет в боте. Если не уверен — <a href="https://tme.to/igorkamyshev" target="_blank">напиши мне</a>, я проверю.</p>
         <label>

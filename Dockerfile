@@ -47,4 +47,6 @@ COPY --from=build --chown=nobody:nobody /app/_build/prod/rel/view_forms ./
 
 ENV HOME=/app
 
+EXPOSE 4000
+
 CMD ["bin/view_forms", "start"]

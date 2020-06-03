@@ -18,10 +18,11 @@ defmodule ViewFormsWeb.PageController do
 
   def add_venue_handler(conn, params) do
     token = params["token"]
+    fields = params["draft"]
 
     template = case validate_publishing token do
       :valid -> 
-        publish_draft params["draft"]
+        publish_draft token, fields
         "thanks.html"
       :invalid ->
         "error.html"

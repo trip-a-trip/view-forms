@@ -41,9 +41,9 @@ defmodule ViewForms.CoreCollaboration do
   end
 
   defp collaboration_url postfix do
-    baseUrl = System.get_env("COLLABORATION_URL") ||
+    baseUrl = System.get_env("CORE_COLLABORATION_URL") ||
       raise """
-      environment variable COLLABORATION_URL is missing.
+      environment variable CORE_COLLABORATION_URL is missing.
       Please, provide it.
       """
 

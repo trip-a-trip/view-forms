@@ -9,6 +9,11 @@
             Название <span class="label--required">(обязательно)</span>
             <%= text_input f, :name, required: true %>
         </label>
+
+        <label>
+            Описание в паре предложений
+            <%= textarea f, :description, required: true %>
+        </label>
     </section>
 
     <section>
@@ -69,11 +74,11 @@
         
         <label>
             Широта <span class="label--required">(обязательно)</span>
-            <%= text_input f, :coordinates_latitude, type: "number", required: true %>
+            <%= text_input f, :coordinates_latitude, type: "number", step: "any", required: true %>
         </label>
         <label>
             Долгота <span class="label--required">(обязательно)</span>
-            <%= text_input f, :coordinates_longitude, type: "number", required: true %>
+            <%= text_input f, :coordinates_longitude, type: "number", step: "any", required: true %>
         </label>
         <label>
             Адрес

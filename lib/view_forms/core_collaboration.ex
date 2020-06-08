@@ -32,12 +32,18 @@ defmodule ViewForms.CoreCollaboration do
       :links => Enum.reduce(link_param, [], &(map_param_reducer([first: "title", second: "url"], &1, &2))),
       :address => params["coordinates_address"],
       :coordinates => %{
-        :longitude => params["coordinates_longitude"],
-        :latitude => params["coordinates_latitude"]
+        :longitude => parse_number(params["coordinates_longitude"]),
+        :latitude => parse_number(params["coordinates_latitude"])
       }
     }
 
     post! collaboration_url("/v1/publication/draft/create"), draft, [{"Content-Type", "application/json"}]
+  end
+
+  defp parse_number value do
+    case Float.parse value do
+      {number, _} -> number
+    end
   end
 
   defp collaboration_url postfix do

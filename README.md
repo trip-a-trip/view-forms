@@ -1,19 +1,20 @@
-# ViewForms
+# Web Client Forms
 
-To start your Phoenix server:
+Web-serivce for add new drafts to Trip Trip
 
-  * Install dependencies with `mix deps.get`
-  * Install Node.js dependencies with `npm install` inside the `assets` directory
-  * Start Phoenix endpoint with `mix phx.server`
+## Development
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
++ Install dependencies with `mix deps.get`
++ Install Node.js dependencies with `npm install` inside the `assets` directory
++ Pass env-variable `CORE_COLLABORATION_URL` with URL of Trip Trip backend
++ Start Phoenix endpoint with `mix phx.server`
++ Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
-Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
+## Production
 
-## Learn more
+### Release to Trip-Trip infrastructure
 
-  * Official website: https://www.phoenixframework.org/
-  * Guides: https://hexdocs.pm/phoenix/overview.html
-  * Docs: https://hexdocs.pm/phoenix
-  * Forum: https://elixirforum.com/c/phoenix-forum
-  * Source: https://github.com/phoenixframework/phoenix
++ Push all code for release to master
++ Create new release in GitHub interface
++ CircleCI roll out release
+

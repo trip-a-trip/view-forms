@@ -1,6 +1,6 @@
 # Web Forms for Customers
 
-Web-serivce for add new drafts to Trip Trip
+Web-serivce for submit new drafts to Trip Trip by collaborators
 
 ## Development
 

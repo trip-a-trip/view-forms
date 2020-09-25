@@ -7,7 +7,7 @@ workflows:
   build:
     jobs:
       - docker/build_push:
-          image_name: 'view-forms'
+          image_name: 'web-client-forms'
           org_name: tripatrip
           image_version: CIRCLE_TAG
           docker_username: DOCKER_USERNAME
@@ -21,12 +21,12 @@ workflows:
           notify_user: '-488110451'
           ssh_user: SSH_USER
           ssh_host: SSH_HOST
-          image_name: 'view-forms'
+          image_name: 'web-client-forms'
           org_name: 'tripatrip'
           image_version: CIRCLE_TAG
           path_to_app: PATH_TO_APP
           apply_post_install: false
-          container_name: 'forms_app'
+          container_name: 'web_client_forms'
           filters:
             tags:
               only: /.*/

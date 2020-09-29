@@ -4,7 +4,7 @@
 </section>
 <%= form_for @conn, Routes.page_path(@conn, :add_venue_handler, token: @token), [as: :draft], fn f -> %>
     <section>
-        <p>Прежде чем добавлять заведение, убедись, что его ещё нет в боте. Если не уверен — <a href="https://tme.to/igorkamyshev" target="_blank">напиши мне</a>, я проверю.</p>
+        <p>Прежде чем добавлять заведение, убедись, что его ещё нет на <a href="https://eat.kamyshev.me" target="_blank">карте</a>.</p>
         <label>
             Название <span class="label--required">(обязательно)</span>
             <%= text_input f, :name, required: true %>
